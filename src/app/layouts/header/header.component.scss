@@ -1,0 +1,60 @@
+@import "src/assets/styles/colors";
+
+header {
+    background-color: $primary;
+
+    .navbar {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        height: 72px;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            h3 {
+                color: #fff;
+                font-size: 32px;
+                line-height: 32px;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+
+        nav {
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            .menu {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                .menu-item {
+                    cursor: pointer;
+                    color: #fff;
+                    font-size: 18px;
+                    line-height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0 25px;
+                    height: 100%;
+                    mat-icon {
+                        margin-right: 11px;
+                    }
+                    &.active{
+                        background-color: $primary-dark;
+                    }
+                }
+            }
+            .tools{
+                margin-left: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+}

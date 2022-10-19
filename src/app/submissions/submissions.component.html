@@ -1,0 +1,57 @@
+<div class="page submission-page">
+    <div class="container">
+        <h2 class="page-title">Submission</h2>
+        <div class="filter">
+            <div class="filter-item search">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText placeholder="Search">         
+                </span>
+            </div>
+            <div class="filter-item">
+                <p-dropdown [options]="forms" optionLabel="name" placeholder="Select Form"></p-dropdown>
+            </div>
+            <div class="filter-item">
+                <p-dropdown [options]="statuses" optionLabel="name" placeholder="Select Status"></p-dropdown>
+            </div>
+            <div class="filter-item">
+                <div class="calendar-form">
+                    <mat-icon svgIcon="calendar"></mat-icon>
+                    <p-calendar [(ngModel)]="today"></p-calendar>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="tab-buttons">
+                    <button [class.active]="mapType" (click)="mapType=true">Map</button>
+                    <button [class.active]="!mapType" (click)="mapType=false">List</button>
+                </div>
+                <a href="assets/files/locations.csv" download>
+                    <button class="btn btn-light-primary export-btn">
+                        <mat-icon svgIcon="export"></mat-icon>
+                        Export
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="list">
+                <div class="locations-list">
+                    <div class="list-item" *ngFor="let item of locations">
+                        <div [ngSwitch]="item.status">
+                            <div *ngSwitchCase="0" class="status-item uncomplete"><span class="mark"></span> Uncomplete</div>
+                            <div *ngSwitchCase="1" class="status-item low-risk"><span class="mark"></span> Low Risk</div>
+                            <div *ngSwitchCase="2" class="status-item needs-review"><span class="mark"></span> Needs Review</div>
+                        </div>
+                        <h3>Work Flow: {{item.flow}}</h3>
+                        <div><label>From : </label><span>{{item.from}}</span></div>
+                        <div><label>To : </label><span>{{item.to}}</span></div>
+                        <div><label>Due Date : </label><span class="text-red">{{item.dueDate}}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="map" [class.show]="mapType">
+                <p-gmap [options]="options" [overlays]="overlays" [style]="{'width':'100%','height':'100%'}" ></p-gmap>
+            </div>
+        </div>
+    </div>
+</div>

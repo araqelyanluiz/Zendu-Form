@@ -1,0 +1,162 @@
+@import "src/assets/styles/colors";
+
+.page{
+    padding: 2rem 0;
+    h2{
+        margin: 0;
+        font-size: 32px;
+        line-height: 44px;
+    }
+    .filter{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 0;
+        .filter-item{
+            width: 210px;
+            &.search{
+                width: 335px;
+            }
+            ::ng-deep{
+                .p-input-icon-left,.p-inputtext,.p-dropdown{
+                    width: 100%;
+                }
+                .p-calendar .p-inputtext{
+                    border: none;
+                    &:enabled:focus{
+                        box-shadow: none;
+                        border: none;
+                    }
+                }
+            }
+        }
+        .calendar-form{
+            border: 1px solid $gray-100;
+            border-radius: 6px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        .tools{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 20%;
+            
+            .tab-buttons{
+                margin-right: 10px;
+                button{
+                    background-color: transparent;
+                    border: 1px solid $gray-100;
+                    color: #000;
+                    padding: 10px 24px;
+                    cursor: pointer;
+                    &:first-child{
+                        border-radius: 4px 0 0 4px;
+                    }
+                    &:last-child{
+                        border-radius: 0 4px 4px 0;
+                    }
+                    &.active{
+                        background-color: $primary;
+                        border-color: $primary;
+                        color: #fff;
+                    }
+                }
+            }
+            .export-btn{
+                cursor: pointer;
+            }
+            a{
+                text-decoration: none;
+            }
+        }
+        
+    }
+
+    .content{
+        display: flex;
+        align-items:stretch;
+        justify-content: flex-start;
+        .list{
+            flex-grow: 1;
+            margin-right: 40px;
+            max-height: 600px;
+            overflow: hidden;
+            overflow-y: auto;
+            padding-right: 10px;
+            .list-item{
+                padding: 1rem;
+                margin-bottom: .5rem;
+                border:1px solid $gray-100;
+                border-radius: 4px;
+                position: relative;
+                h3{
+                    margin: 0;
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+                label{
+                    color: #B8B9BC;
+                    font-size: 16px;
+                    line-height: 28px;
+                }
+                span{
+                    font-size: 16px;
+                    line-height: 28px;
+                    &.text-red{
+                        color: #FF3D00;
+                        font-weight: 700;
+                    }
+                }
+                .status-item{
+                    padding: 4px 8px;
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    border: 1px solid #B8B9BC;
+                    background-color: #ECECED;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    color: #B8B9BC;
+                    .mark{
+                        width: 9px;
+                        height: 9px;
+                        background-color: #B8B9BC;
+                        border-radius: 50px;
+                        margin-right: 4px;
+                    }
+                    &.uncomplete{
+                        background-color: rgba(255, 61, 0, 0.1);
+                        border-color: #FF3D00;
+                        color: #FF3D00;
+                        .mark{
+                            background-color: #FF3D00;
+                        }
+                    }
+                    &.low-risk{
+                        background-color:  #D7E5DA;
+                        border-color: #53D86A;
+                        color: #53D86A;
+                        .mark{
+                            background-color: #53D86A;
+                        }
+                    }
+                }
+            }
+
+            
+        }
+        .map{
+            width: 0;
+            height: 600px;
+            transition: width 0.5s;
+            &.show{
+                width: 63%;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmissionsService } from '../services/submissions.service';
 
-declare var google:any;
+declare const google: any;
 @Component({
   selector: 'app-submissions',
   templateUrl: './submissions.component.html',
@@ -13,11 +13,11 @@ export class SubmissionsComponent implements OnInit {
   today: any | undefined;
   locations: any[] = [];
   options = {
-    center: { lat: 40.205703, lng:  44.484243 },
+    center: { lat: 40.205703, lng: 44.484243 },
     zoom: 13,
   };
-  overlays:any[]=[];
-  mapType:boolean = true;
+  overlays: any[] = [];
+  mapType: boolean = true;
   constructor(private service: SubmissionsService) {
     this.getLOcations();
   }
@@ -28,8 +28,13 @@ export class SubmissionsComponent implements OnInit {
 
   getLOcations() {
     this.locations = this.service.getLocations();
-    this.locations.forEach(elem=>{
-      this.overlays.push(new google.maps.Marker({position: {lat: elem.latitude, lng: elem.longitude},icon:"assets/icons/location.svg"}))
-    })
+    this.locations.forEach((elem) => {
+      this.overlays.push(
+        new google.maps.Marker({
+          position: { lat: elem.latitude, lng: elem.longitude },
+          icon: 'assets/icons/location.svg',
+        })
+      );
+    });
   }
 }

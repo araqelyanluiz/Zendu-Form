@@ -1,0 +1,14 @@
+package.json
+package-lock.json
+dist
+e2e/**
+src/environments/**
+main.ts
+index.html
+polyfills.ts
+test.ts
+karma.conf.js
+commitlint.config.js
+src/**/*.spec.ts
+src/**/*.html
+src/assets/fontawesome/**
